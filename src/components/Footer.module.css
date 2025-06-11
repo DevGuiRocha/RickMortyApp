@@ -1,0 +1,26 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0D394F;
+    color: #fff;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    height: 45px;
+    z-index: 700;
+}
+
+.top {
+    margin-bottom: 0.25rem;
+}
+
+.bottom, .link {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.bottom .link:hover {
+    text-decoration: underline;
+}

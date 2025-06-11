@@ -1,14 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styles from './Navbar.module.css';
+import logoImg from '../assets/RickMortyLogo.png';
 
 export default function Navbar() {
     return(
-        <nav>
-            <div>
-                <span>Rick & Morty Space</span>
+        <nav className={styles.nav}>
+            <div className={styles.brand}>
+                <img src={logoImg} alt="Logo" className={styles.logo} />
+                <Link to="/" className={styles.title}>Rick & Morty Space</Link>
             </div>
-            <div>
-                <Link to="/">Home</Link>
+            <div className={styles.links}>
+                <Link to="/" className={styles.link}>Home</Link>
+                <Link to="/" className={styles.link}>Personagens</Link>
+                <Link to="/" className={styles.link}>Episódios</Link>
+                <Link to="/" className={styles.link}>Localidades</Link>
             </div>
         </nav>
     )
