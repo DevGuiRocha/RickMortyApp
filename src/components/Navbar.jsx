@@ -12,9 +12,9 @@ export default function Navbar() {
             </div>
             <div className={styles.links}>
                 <Link to="/" className={styles.link}>Home</Link>
-                <Link to="/" className={styles.link}>Personagens</Link>
-                <Link to="/" className={styles.link}>Episódios</Link>
-                <Link to="/" className={styles.link}>Localidades</Link>
+                <Link to="/characters" className={styles.link}>Personagens</Link>
+                <Link to="/episodes" className={styles.link}>Episódios</Link>
+                <Link to="/locations" className={styles.link}>Localidades</Link>
             </div>
         </nav>
     )
