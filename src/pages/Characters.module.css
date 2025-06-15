@@ -4,3 +4,48 @@
     padding: 0.5rem 1rem;
     margin-bottom: 4rem;
 }
+
+.error {
+    color: #ff6b6b;
+    margin-bottom: 1rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.card {
+    background-color: #0D394F;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.cardImage {
+    width: 100%;
+    display: block;
+}
+
+.cardBody {
+    padding: 1rem;
+}
+
+.cardTitle {
+    margin: 0 0 0 0.5rem;
+    font-size: 1.25rem;
+    color: #00FF95;
+}
+
+.cardInfo {
+    margin: 0.25rem 0;
+    color: #A0A0A0;
+    font-size: 0.9rem;
+}

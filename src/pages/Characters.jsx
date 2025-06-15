@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { fetchCharacters } from '../api/Characters';
-import CharacterCard from '../components/CharacterCard';
+import { Link } from "react-router-dom";
 import Pagination from '../components/Pagination';
 import styles from './Characters.module.css';
 
@@ -42,7 +42,20 @@ export default function Characters() {
 
             <div className={styles.grid}>
                 {characters.map((char) => (
-                    <CharacterCard key={char.id} character={char}/>
+                    <Link to={`/character/${char.id}`}>
+                        <div key={char.id} className={styles.card}>
+                            <img src={char.image} alt={char.name} className={styles.cardImage} />
+                            <div className={styles.cardBody}>
+                                <h2 className={styles.cardTitle}>{char.name}</h2>
+                                <p className={styles.cardInfo}>
+                                    <strong>Status:</strong> {char.status}
+                                </p>
+                                <p className={styles.cardInfo}>
+                                    <strong>Espécie:</strong> {char.species}
+                                </p>
+                            </div>
+                        </div>
+                    </Link>
                 ))}
             </div>
 
