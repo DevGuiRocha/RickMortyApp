@@ -1,18 +1,37 @@
+import React from 'react';
+import styles from './Pagination.module.css';
+
 function Pagination({ info, page, setPage }) {
+    const { prev, next, pages } = info
+
     return (
-        <div>
+        <div className={styles.pagination}>
             <button
-                onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
-                disabled={!info.prev}
+                onClick={() => setPage(1)}
+                disabled={page === 1}
+            >
+                Primeira
+            </button>
+            <button
+                onClick={() => setPage(prev ? page - 1 : page)}
+                disabled={!prev}
             >
                 Anterior
             </button>
-            <span>Página {page} de {info.pages}</span>
+            <span className={styles.pageInfo}>
+                Página {page} de {pages}
+            </span>
             <button
-                onClick={() => setPage((prev) => Math.min(prev + 1, info.pages))}
-                disabled={!info.next}
+                onClick={() => setPage(next ? page + 1 : page)}
+                disabled={!next}
             >
                 Próxima
+            </button>
+            <button
+                onClick={() => setPage(pages)}
+                disabled={page === pages}
+            >
+                Última
             </button>
         </div>
     )
