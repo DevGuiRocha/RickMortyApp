@@ -42,7 +42,7 @@ export default function Characters() {
 
             <div className={styles.grid}>
                 {characters.map((char) => (
-                    <Link to={`/character/${char.id}`}>
+                    <Link to={`/characters/${char.id}`}>
                         <div key={char.id} className={styles.card}>
                             <img src={char.image} alt={char.name} className={styles.cardImage} />
                             <div className={styles.cardBody}>
