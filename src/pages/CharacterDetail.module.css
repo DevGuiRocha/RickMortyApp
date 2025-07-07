@@ -1,0 +1,74 @@
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2.5rem 1rem;
+    margin-bottom: 4rem;
+}
+
+.backButton {
+    background: none;
+    border: none;
+    color: #00FF95;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+.backButtor:hover {
+    text-decoration: underline;
+}
+
+.title {
+    margin: 0;
+    font-size: 2rem;
+    color: #E0E0E0;
+}
+
+.loading, .error {
+    text-align: center;
+    color: #00FF95;
+}
+
+.detail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.image {
+    flex: 0 0 300px;
+    width: 100%;
+    border-radius: 9px;
+}
+
+.info {
+    flex: 1;
+    color: #E0E0E0;
+}
+.info p {
+    margin: 0.5rem 0;
+}
+
+.episodes {
+    margin-top: 2rem;
+}
+.episodeList {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.5rem;
+}
+.episodeLink {
+    display: block;
+    padding: 0.5rem;
+    background-color: #0D394F;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #00FF95;
+    text-align: center;
+    transition: background 0.2s;
+}
+.episodeLink:hover {
+    background-color: #34214F;
+}
