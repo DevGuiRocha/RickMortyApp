@@ -21,7 +21,7 @@ export default function Episodes() {
                 setEpisodes(data.results)
                 setInfo(data.info)
                 setError(null)
-            } catch (err) {
+            } catch {
                 setError('Não foi possível carregar os episódios. Tente novamente mais tarde')
                 setEpisodes([])
                 setInfo({ pages: 1, next: null, prev: null })

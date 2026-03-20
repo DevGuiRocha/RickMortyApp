@@ -21,7 +21,7 @@ export default function Characters() {
                 setCharacters(data.results)
                 setInfo(data.info)
                 setError(null)
-            } catch (err) {
+            } catch {
                 setError('Não foi possível carregar os personagens. Tente novamente mais tarde')
                 setCharacters([])
                 setInfo({ pages: 1, next: null, prev: null })
