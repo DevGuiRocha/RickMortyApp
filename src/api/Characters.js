@@ -1,4 +1,4 @@
-import api from "./RickMortyapi";
+import api from "./RickMortyApi";
 
 export const fetchCharacters = async ({
     page = 1,
