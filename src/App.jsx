@@ -5,6 +5,7 @@ import CharacterDetail from "./pages/CharacterDetail";
 import Episodes from "./pages/Episodes";
 import EpisodeDetail from "./pages/EpisodeDetail";
 import Locations from "./pages/Locations";
+import LocationDetail from "./pages/LocationDetail";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/episodes" element={<Episodes />} />
         <Route path="/episodes/:id" element={<EpisodeDetail />} />
         <Route path="/locations" element={<Locations />} />
+        <Route path="/locations/:id" element={<LocationDetail />} />
       </Routes>
       <Footer />
     </BrowserRouter>
