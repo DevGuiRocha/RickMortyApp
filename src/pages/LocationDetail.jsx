@@ -2,7 +2,6 @@ import React, { useState, useEffect, useLayoutEffect } from "react";
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { fetchLocationsById } from "../api/Locations";
 import { fetchCharacterByIds } from "../api/Characters";
-import { fetchEpisodesByIds } from "../api/Episodes";
 import styles from './LocationDetail.module.css';
 
 export default function LocationDetail() {
@@ -13,7 +12,6 @@ export default function LocationDetail() {
 
     const [location, setLocation] = useState(null);
     const [residents, setResidents] = useState([]);
-    const [episodes, setEpisodes] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -27,25 +25,9 @@ export default function LocationDetail() {
                 if (data.residents.length > 0) {
                     const residentIds = data.residents.map((url) => url.split('/').pop());
                     const residentsData = await fetchCharacterByIds(residentIds);
-                    const residentsArray = Array.isArray(residentsData) ? residentsData : [residentsData];
-                    setResidents(residentsArray);
-                    
-                    const episodeIds = new Set();
-                    residentsArray.forEach(resident => {
-                        resident.episode.forEach(episodeUrl => {
-                            const epId = episodeUrl.split('/').pop();
-                            episodeIds.add(epId);
-                        });
-                    });
-                    
-                    if (episodeIds.size > 0) {
-                        const episodesData = await fetchEpisodesByIds(Array.from(episodeIds));
-                        const episodesArray = Array.isArray(episodesData) ? episodesData : [episodesData];
-                        setEpisodes(episodesArray.sort((a, b) => a.id - b.id));
-                    }
+                    setResidents(Array.isArray(residentsData) ? residentsData : [residentsData]);
                 } else {
                     setResidents([]);
-                    setEpisodes([]);
                 }
                 
                 setError(null);
@@ -88,49 +70,28 @@ export default function LocationDetail() {
             </div>
 
             {residents.length > 0 ? (
-                <>
-                    <div className={styles.residents}>
-                        <h2>Residentes desta localidade</h2>
-                        <div className={styles.residentGrid}>
-                            {residents.map((char) => (
-                                <Link 
-                                    to={`/characters/${char.id}`} 
-                                    key={char.id}
-                                    className={styles.residentCard}
-                                >
-                                    <img 
-                                        src={char.image} 
-                                        alt={char.name}
-                                        className={styles.residentImage}
-                                    />
-                                    <div className={styles.residentInfo}>
-                                        <h3 className={styles.residentName}>{char.name}</h3>
-                                        <p className={styles.residentStatus}>{char.status}</p>
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
+                <div className={styles.residents}>
+                    <h2>Residentes desta localidade</h2>
+                    <div className={styles.residentGrid}>
+                        {residents.map((char) => (
+                            <Link 
+                                to={`/characters/${char.id}`} 
+                                key={char.id}
+                                className={styles.residentCard}
+                            >
+                                <img 
+                                    src={char.image} 
+                                    alt={char.name}
+                                    className={styles.residentImage}
+                                />
+                                <div className={styles.residentInfo}>
+                                    <h3 className={styles.residentName}>{char.name}</h3>
+                                    <p className={styles.residentStatus}>{char.status}</p>
+                                </div>
+                            </Link>
+                        ))}
                     </div>
-
-                    {episodes.length > 0 && (
-                        <div className={styles.episodes}>
-                            <h2>Episódios onde esta localidade aparece</h2>
-                            <div className={styles.episodeGrid}>
-                                {episodes.map((episode) => (
-                                    <Link 
-                                        to={`/episodes/${episode.id}`} 
-                                        key={episode.id}
-                                        className={styles.episodeCard}
-                                    >
-                                        <h3 className={styles.episodeName}>{episode.name}</h3>
-                                        <p className={styles.episodeCode}>{episode.episode}</p>
-                                        <p className={styles.episodeDate}>{episode.air_date}</p>
-                                    </Link>
-                                ))}
-                            </div>
-                        </div>
-                    )}
-                </>
+                </div>
             ) : (
                 <div className={styles.noResidents}>
                     <p>Nenhum residente conhecido nesta localidade.</p>
