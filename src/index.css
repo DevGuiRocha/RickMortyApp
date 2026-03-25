@@ -26,6 +26,8 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 h1 {
@@ -54,3 +56,25 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    padding-top: 110px;
+    padding-bottom: 70px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+}
