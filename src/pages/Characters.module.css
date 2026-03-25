@@ -46,6 +46,7 @@
     background-color: #0D1B2A;
     color: #E0E0E0;
     transition: border-color 0.3s;
+    box-sizing: border-box;
 }
 
 .searchInput:focus {
@@ -60,12 +61,13 @@
 
 .filtersSection {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     margin-bottom: 1rem;
 }
 
 .filterSelect {
+    width: 100%;
     padding: 0.8rem;
     font-size: 0.95rem;
     border: 2px solid #1a5066;
@@ -74,6 +76,7 @@
     color: #E0E0E0;
     cursor: pointer;
     transition: border-color 0.3s;
+    box-sizing: border-box;
 }
 
 .filterSelect:focus {
@@ -216,12 +219,18 @@
         flex-direction: column;
     }
 
-    .applyButton {
+    .applyButton, .clearButton {
         width: 100%;
     }
 
     .grid {
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
         gap: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .filtersSection {
+        grid-template-columns: 1fr;
     }
 }
